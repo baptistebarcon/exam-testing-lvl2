@@ -42,6 +42,10 @@ export class RestaurantSystem {
     order: IOrder | null;
     invoice: IInvoice | null;
   } {
+    if (items.some(item => item.quantity <= 0)) {
+      throw new Error("Invalid quantity in order");
+    }
+    
     const order = this.orderService.createOrder(customerId, items);
     if (!order) {
       return { order: null, invoice: null };
