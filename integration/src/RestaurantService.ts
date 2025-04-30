@@ -42,6 +42,7 @@ export class RestaurantSystem {
     order: IOrder | null;
     invoice: IInvoice | null;
   } {
+    // J'ai ajouté ce bloc pour lever une erreur si la quantité est nulle
     if (items.some(item => item.quantity <= 0)) {
       throw new Error("Invalid quantity in order");
     }

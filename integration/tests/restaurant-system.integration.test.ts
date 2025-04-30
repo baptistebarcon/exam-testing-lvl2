@@ -221,6 +221,7 @@ describe('Restaurant System Integration Tests', () => {
     expect(result.invoice).toBeNull();
   });
 
+  // J'ai modifié la méthode processOrder pour qu'elle lève une erreur si la quantité est nulle
   it('Commande avec quantité zéro échoue', () => {
     expect(() => {
       system.processOrder(customer.id, [{ productId: pizza.id, quantity: 0 }]);
